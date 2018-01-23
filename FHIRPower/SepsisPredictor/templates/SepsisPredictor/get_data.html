@@ -1,0 +1,16 @@
+<table id="_patient-list" class="table-bordered">
+    {% if bundle %}
+    <tr>
+        <th>Patient Name</th>
+        <th>Graph</th>
+        <th>Sepsis Score</th>
+    </tr>
+    {% for data in bundle %}
+    <tr>
+        <td><a href="/SepsisPredictor/{{ data.0.patient_id }}/">{{ data.0.patient_name }}</a></td>
+        <td>{{ data.2|safe }}{{ data.1|safe }}</td>
+        <td>{{ data.0.sepsis_score|floatformat:"2" }}</td>
+    </tr>
+    {% endfor %}
+    {% endif %}
+</table>

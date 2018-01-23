@@ -1,0 +1,39 @@
+<table id="_details-table" class="table-bordered">
+    {% if hr %}
+    <tr>
+        <th>Metric</th>
+        <th>Graph</th>
+        <th>Value</th>
+    </tr>
+    <tr>
+        <td>Heart Rate</td>
+        <td>{{ hr.1|safe }}{{ hr.0|safe }}</td>
+        <td>{{ patient.heart_rate|floatformat:"2" }}</td>
+    </tr>
+    <tr>
+        <td>Temperature</td>
+        <td>{{ temp.1|safe }}{{ temp.0|safe }}</td>
+        <td>{{ patient.temperature|floatformat:"2" }}</td>
+    </tr>
+    <tr>
+        <td>O2 Saturation</td>
+        <td>{{ o2.1|safe }}{{ o2.0|safe }}</td>
+        <td>{{ patient.o2_saturation|floatformat:"2" }}</td>
+    </tr>
+    <tr>
+        <td>Blood Pressure</td>
+        <td>{{ bp.1|safe }}{{ bp.0|safe }}</td>
+        <td>{{ patient.blood_pressure|floatformat:"2" }}</td>
+    </tr>
+    <tr>
+        <td>Glasgow Coma Scale</td>
+        <td>{{ gcs.1|safe }}{{ gcs.0|safe }}</td>
+        <td>{{ patient.glasgow_coma_scale|floatformat:"2" }}</td>
+    </tr>
+    <tr>
+        <td>Respiratory Rate</td>
+        <td>{{ rr.1|safe }}{{ rr.0|safe }}</td>
+        <td>{{ patient.respiratory_rate|floatformat:"2" }}</td>
+    </tr>
+    {% endif %}
+</table>

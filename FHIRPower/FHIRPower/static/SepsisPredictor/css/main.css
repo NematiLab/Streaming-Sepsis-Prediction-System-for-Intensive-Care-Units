@@ -1,0 +1,17 @@
+th {
+    color: red;
+}
+.jumbotron {
+    height: 50px;
+    background-color: transparent;
+    border: #000000 solid 2px;
+}
+
+.jumbotron h3 {
+    color: red;
+}
+
+.table-bordered {
+    width: 100%;
+    text-align: center;
+}

@@ -1,0 +1,54 @@
+th {
+    height: 3em;
+    color: red;
+    border: #000000 solid 2px !important;
+    font-weight: bold;
+}
+
+td {
+    border: #000000 solid 2px !important;
+}
+
+a {
+    color: red !important;
+    text-decoration: underline !important;
+}
+
+.wrapper {
+    display: inline-block !important;
+    white-space: nowrap !important;
+    width: 100% !important;
+    align-content: center;
+}
+
+.pull-left {
+    float: left !important;
+}
+
+.pull-left h3 {
+    line-height: 96px;
+    float: left !important;
+    color: red;
+}
+
+.pull-right {
+    float: right !important;
+}
+
+.jumbotron {
+    height: 140px;
+    width: 100%;
+    background-color: white !important;
+    border: #000000 solid 2px;
+    padding: 20px !important;
+}
+
+.table-bordered {
+    width: 100%;
+    text-align: center;
+    border: #000000 solid 2px !important;
+}
+
+.patient_header {
+    margin: 22px;
+}

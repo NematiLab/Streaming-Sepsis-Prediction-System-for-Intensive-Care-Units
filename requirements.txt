@@ -1,0 +1,5 @@
+Django==1.11.8
+flask
+requests
+bokeh==0.12.10
+rdflib

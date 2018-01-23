@@ -1,0 +1,59 @@
+<html>
+<head>
+    <title>FHIR Power - Sepsis Monitor</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        var patient_id = {{ patient.patient_id }}
+        var update_increment = {{ current_increment }};
+        (function update_data() {
+            var url_mask = "{% url 'get_detail_data' patient_id=12345 increment=123456 %}".replace("12345", patient_id.toString()).replace("123456", update_increment.toString());
+            $('#_details-table').load(url_mask);
+            update_increment += 5;
+            setTimeout(update_data, 5000);
+        })();
+    </script>
+
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'SepsisPredictor/css/main.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'SepsisPredictor/css/bootstrap.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'SepsisPredictor/css/bootstrap-grid.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'SepsisPredictor/css/bootstrap-reboot.css' %}" />
+
+    <script src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.10.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.10.min.css">
+
+</head>
+<body>
+{#{%  load custom_tags %}#}
+    <div class="container">
+        <div class="jumbotron">
+            <div class="wrapper">
+                <div class="pull-left">
+                    <h3><strong>Sepsis Monitor</strong></h3>
+                </div>
+                <div class="pull-right">
+                    <img src="{% static 'SepsisPredictor/img/fhirpower_logo.png' %}" height="100px" />
+                </div>
+            </div>
+        </div>
+        {% if patient %}
+            <div class="patient_header">
+                <div class="row">
+                    <div class="col-md-4"><h4>Patient Name: {{ patient.patient_name }}</h4></div>
+                    <div class="col-md-2" style="text-align: right"><h4>Patient ID: {{ patient.patient_id }}</h4></div>
+                    <div class="col-md-6" style="text-align: right"><h4>Updated: {{ update_time }}</h4></div>
+                </div>
+            </div>
+            <table id="_details-table" class="table-bordered">
+                <tr>
+                {% include 'SepsisPredictor/get_detail_data.html' %}
+                </tr>
+            </table>
+        {% else %}
+            <p>No patient is available.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

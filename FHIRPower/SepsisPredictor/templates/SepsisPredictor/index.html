@@ -1,0 +1,62 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>FHIR Power - Sepsis Monitor</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        var update_increment = 5;
+        (function update_data() {
+            var url_mask = "{% url 'get_data' increment=12345 %}".replace("12345", update_increment.toString());
+            $('#_patient-list').load(url_mask);
+            update_increment += 5;
+            setTimeout(update_data, 5000);
+        })();
+    </script>
+
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'SepsisPredictor/css/main.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'SepsisPredictor/css/bootstrap.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'SepsisPredictor/css/bootstrap-grid.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'SepsisPredictor/css/bootstrap-reboot.css' %}" />
+
+    <script src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.10.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.10.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <div class="wrapper">
+                <div class="pull-left">
+                    <h3><strong>Sepsis Monitor</strong></h3>
+                </div>
+                <div class="pull-right">
+                    <img src="{% static 'SepsisPredictor/img/fhirpower_logo.png' %}" height="100px" />
+                </div>
+            </div>
+        </div>
+{#    <button onclick="test()">Test</button>#}
+        <table id="_patient-list" class="table-bordered">
+{#            {% if bundle %}#}
+{#            <tr>#}
+{#                <th>Patient Name</th>#}
+{#                <th>Graph</th>#}
+{#                <th>Sepsis Score</th>#}
+{#            </tr>#}
+{#            {% for data in bundle %}#}
+{#            <tr>#}
+{#                <td><a href="/SepsisPredictor/{{ data.0.patient_id }}/">{{ data.0.patient_name }}</a></td>#}
+{#                <td>{{ data.2|safe }}{{ data.1|safe }}</td>#}
+{#                <td>{{ data.0.sepsis_score }}</td>#}
+{#            </tr>#}
+{#            {% endfor %}#}
+{#            {% endif %}#}
+            <tr>
+            {% include 'SepsisPredictor/get_data.html' %}
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
