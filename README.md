@@ -1,6 +1,6 @@
 # Streaming-Sepsis-Prediction-System-for-Intensive-Care-Units
-Streaming Sepsis Prediction System for Intensive Care Units, by Joel Henry, Jeff Mals, Dennis Lynch et al.
-
+Code accompanying: 
+Henry JR, Lynch D, Mals J, Shashikumar SP, Holder A, Sharma A, Nemati S. A FHIR-Enabled Streaming Sepsis Prediction System for ICUs. InConference proceedings:... Annual International Conference of the IEEE Engineering in Medicine and Biology Society. IEEE Engineering in Medicine and Biology Society. Annual Conference 2018 Jul (Vol. 2018, pp. 4093-4096). PMID: 30441256 DOI: 10.1109/EMBC.2018.8513347
 
 Copyright [2018] [NematiLab]
 
